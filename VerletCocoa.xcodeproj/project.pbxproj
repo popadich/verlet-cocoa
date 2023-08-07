@@ -12,6 +12,7 @@
 		FAB688892A813F9A000B7185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB688882A813F9A000B7185 /* Assets.xcassets */; };
 		FAB6888C2A813F9A000B7185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB6888A2A813F9A000B7185 /* Main.storyboard */; };
 		FAB6888E2A813F9A000B7185 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6888D2A813F9A000B7185 /* main.m */; };
+		FACAC5772A816C2300E17994 /* PrefsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACAC5762A816C2300E17994 /* PrefsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		FAB6888B2A813F9A000B7185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAB6888D2A813F9A000B7185 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAB6888F2A813F9A000B7185 /* VerletCocoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VerletCocoa.entitlements; sourceTree = "<group>"; };
+		FACAC5752A816C2300E17994 /* PrefsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefsViewController.h; sourceTree = "<group>"; };
+		FACAC5762A816C2300E17994 /* PrefsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrefsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 				FAB688832A813F99000B7185 /* AppDelegate.m */,
 				FAB688852A813F99000B7185 /* ViewController.h */,
 				FAB688862A813F99000B7185 /* ViewController.m */,
+				FACAC5752A816C2300E17994 /* PrefsViewController.h */,
+				FACAC5762A816C2300E17994 /* PrefsViewController.m */,
 				FAB688882A813F9A000B7185 /* Assets.xcassets */,
 				FAB6888A2A813F9A000B7185 /* Main.storyboard */,
 				FAB6888D2A813F9A000B7185 /* main.m */,
@@ -140,6 +145,7 @@
 				FAB688872A813F99000B7185 /* ViewController.m in Sources */,
 				FAB6888E2A813F9A000B7185 /* main.m in Sources */,
 				FAB688842A813F99000B7185 /* AppDelegate.m in Sources */,
+				FACAC5772A816C2300E17994 /* PrefsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
