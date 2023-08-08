@@ -6,6 +6,11 @@
 //
 
 #import "ViewController.h"
+#import "Preferences.h"
+
+@interface ViewController ()
+@property (strong) Preferences *prefs;
+@end
 
 @implementation ViewController {
     
@@ -14,6 +19,8 @@
     __weak IBOutlet NSButton *stopButton;
     __weak IBOutlet NSButton *resetButton;
     
+    NSInteger max_objects_count;
+
 }
 
 
@@ -23,6 +30,10 @@
     // Do any additional setup after loading the view.
     self.countDownTimer = [[Timer alloc] init];
     [self.countDownTimer setDelegate:self];
+    
+    self.prefs = [[Preferences alloc] init];
+    [self setupPrefs];
+    
 }
 
 
@@ -37,7 +48,7 @@
     if (self.countDownTimer.isPaused) {
         [self.countDownTimer resumeTimer];
     } else {
-        [self.countDownTimer setDuration:360];
+        [self.countDownTimer setDuration:self.prefs.selectedTime];
         [self.countDownTimer startTimer];
     }
     [self configureButtonAndMenus];
@@ -50,8 +61,8 @@
 
 - (IBAction)resetButtonClicked:(NSButton *)sender {
     [self.countDownTimer resetTimer];
-    [self.countDownTimer setDuration:360];
-    [self updateDisplayFor:360];
+    [self.countDownTimer setDuration:self.prefs.selectedTime];
+    [self updateDisplayFor:self.prefs.selectedTime];
     [self configureButtonAndMenus];
 }
 
@@ -133,6 +144,40 @@
         }
     }
     return YES;
+}
+
+// MARK: PREFERENCES
+- (void)setupPrefs {
+    [self updateDisplayFor:self.prefs.selectedTime];
+    NSNotificationName notificationName = @"PrefsChanged";
+    [NSNotificationCenter.defaultCenter addObserverForName:notificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self checkForResetAfterPrefsChange];
+    }];
+}
+
+- (void)updateFromPrefs {
+    [self.countDownTimer setDuration:self.prefs.selectedTime];
+    max_objects_count     = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
+    [self resetButtonClicked:nil];
+}
+
+- (void)checkForResetAfterPrefsChange {
+    if (self.countDownTimer.isStopped || self.countDownTimer.isPaused) {
+        [self updateFromPrefs];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"Reset timer with the new settings?";
+        alert.informativeText = @"This will stop your current timer!";
+        [alert setAlertStyle:NSAlertStyleWarning];
+        
+        [alert addButtonWithTitle:@"Reset"];
+        [alert addButtonWithTitle:@"Cancel"];
+        
+        NSInteger response = [alert runModal];
+        if (response == NSAlertFirstButtonReturn) {
+            [self updateFromPrefs];
+        }
+    }
 }
 
 

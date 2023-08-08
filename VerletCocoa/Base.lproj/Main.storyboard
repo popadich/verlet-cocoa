@@ -381,6 +381,9 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="C7m-kU-1bn" name="value" keyPath="values.maximumNumberOfParticles" id="H9O-Np-7Qk"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -391,6 +394,7 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="zff-WF-uqu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="C7m-kU-1bn"/>
             </objects>
             <point key="canvasLocation" x="706" y="779"/>
         </scene>
