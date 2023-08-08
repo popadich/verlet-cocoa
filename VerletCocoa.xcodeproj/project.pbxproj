@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA4868532A81C5F4002D2B23 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4868522A81C5F4002D2B23 /* Timer.m */; };
 		FAB688842A813F99000B7185 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB688832A813F99000B7185 /* AppDelegate.m */; };
 		FAB688872A813F99000B7185 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB688862A813F99000B7185 /* ViewController.m */; };
 		FAB688892A813F9A000B7185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB688882A813F9A000B7185 /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA4868512A81C5F4002D2B23 /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		FA4868522A81C5F4002D2B23 /* Timer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		FAB6887F2A813F99000B7185 /* VerletCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerletCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB688822A813F99000B7185 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAB688832A813F99000B7185 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 				FAB6888A2A813F9A000B7185 /* Main.storyboard */,
 				FAB6888D2A813F9A000B7185 /* main.m */,
 				FAB6888F2A813F9A000B7185 /* VerletCocoa.entitlements */,
+				FA4868512A81C5F4002D2B23 /* Timer.h */,
+				FA4868522A81C5F4002D2B23 /* Timer.m */,
 			);
 			path = VerletCocoa;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4868532A81C5F4002D2B23 /* Timer.m in Sources */,
 				FAB688872A813F99000B7185 /* ViewController.m in Sources */,
 				FAB6888E2A813F9A000B7185 /* main.m in Sources */,
 				FAB688842A813F99000B7185 /* AppDelegate.m in Sources */,

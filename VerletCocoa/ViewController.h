@@ -6,9 +6,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Timer.h"
 
-@interface ViewController : NSViewController
+@interface ViewController<EggTimerProtocol> : NSViewController
 
+@property (strong) Timer *eggTimer;
 
 @end
 
