@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,25 +66,22 @@
                                     <items>
                                         <menuItem title="Start" keyEquivalent="r" id="Qch-ys-fRd">
                                             <connections>
-                                                <action selector="startTimerMenuItemSelected:" target="Ady-hI-5gd" id="9V4-IY-xbD"/>
+                                                <action selector="startTimerMenuItemSelected:" target="Ady-hI-5gd" id="LxC-ev-Gi0"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Stop" keyEquivalent="." id="rYl-Iu-yVs">
                                             <connections>
-                                                <action selector="stopTimerMenuItemSelected:" target="Ady-hI-5gd" id="sxG-mj-1EE"/>
+                                                <action selector="stopTimerMenuItemSelected:" target="Ady-hI-5gd" id="sNu-G0-rFt"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Reset" id="Xqm-3J-tAc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="resetTimerMenuItemSelected:" target="Ady-hI-5gd" id="vlW-HZ-fKJ"/>
+                                                <action selector="resetTimerMenuItemSelected:" target="Ady-hI-5gd" id="L8C-9h-1zw"/>
                                             </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
-                                <connections>
-                                    <action selector="stopTimerMenuItemSelected:" target="Ady-hI-5gd" id="Qec-ff-Dvu"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -132,7 +130,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="-137"/>
+            <point key="canvasLocation" x="577" y="-98"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -187,7 +185,7 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-vg-R8N">
                                         <rect key="frame" x="160" y="-1" width="160" height="34"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Stop" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NOe-vd-K7A">
+                                        <buttonCell key="cell" type="smallSquare" title="Stop" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NOe-vd-K7A">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="24"/>
                                         </buttonCell>
@@ -197,7 +195,7 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-17-Dkq">
                                         <rect key="frame" x="320" y="-1" width="160" height="34"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Reset" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="94X-bX-TVb">
+                                        <buttonCell key="cell" type="smallSquare" title="Reset" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="94X-bX-TVb">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="24"/>
                                         </buttonCell>

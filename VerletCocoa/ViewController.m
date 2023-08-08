@@ -21,8 +21,8 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    self.eggTimer = [[Timer alloc] init];
-    [self.eggTimer setDelegate:self];
+    self.countDownTimer = [[Timer alloc] init];
+    [self.countDownTimer setDelegate:self];
 }
 
 
@@ -34,26 +34,28 @@
 
 
 - (IBAction)startButtonClicked:(NSButton *)sender {
-    if (self.eggTimer.isPaused) {
-        [self.eggTimer resumeTimer];
-
+    if (self.countDownTimer.isPaused) {
+        [self.countDownTimer resumeTimer];
     } else {
-        [self.eggTimer setDuration:360];
-        [self.eggTimer startTimer];
+        [self.countDownTimer setDuration:360];
+        [self.countDownTimer startTimer];
     }
+    [self configureButtonAndMenus];
 }
 
 - (IBAction)stopButtonClicked:(NSButton *)sender {
-    [self.eggTimer stopTimer];
+    [self.countDownTimer stopTimer];
+    [self configureButtonAndMenus];
 }
 
 - (IBAction)resetButtonClicked:(NSButton *)sender {
-    [self.eggTimer resetTimer];
-    [self.eggTimer setDuration:360];
+    [self.countDownTimer resetTimer];
+    [self.countDownTimer setDuration:360];
     [self updateDisplayFor:360];
+    [self configureButtonAndMenus];
 }
 
-// these are called because through the first responder
+// these are called through the first responder
 - (IBAction)startTimerMenuItemSelected:(id)sender {
     [self startButtonClicked:sender];
 }
@@ -84,6 +86,53 @@
     timeRemainingDisplay = [NSString stringWithFormat:@"%d:%02d", (int)minutesRemaining, (int)secondsRemaining];
 
     return timeRemainingDisplay;
+}
+
+- (void)configureButtonAndMenus {
+    BOOL enableStart = YES;
+    BOOL enableStop = NO;
+    BOOL enableReset = NO;
+    
+    if (self.countDownTimer.isStopped) {
+        enableStart = YES;
+        enableStop = NO;
+        enableReset = NO;
+    } else if (self.countDownTimer.isPaused) {
+        enableStart = YES;
+        enableStop = NO;
+        enableReset = YES;
+    } else {
+        enableStart = NO;
+        enableStop = YES;
+        enableReset = NO;
+    }
+    
+    [startButton setEnabled:enableStart];
+    [stopButton setEnabled:enableStop];
+    [resetButton setEnabled:enableReset];
+    
+}
+
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    SEL action = [menuItem action];
+    
+    if (action == @selector(startTimerMenuItemSelected:)) {
+        if (!(self.countDownTimer.isStopped || self.countDownTimer.isPaused)) {
+            return NO;
+        }
+    }
+    if (action == @selector(stopTimerMenuItemSelected:)) {
+        if (self.countDownTimer.isPaused || self.countDownTimer.isStopped) {
+            return NO;
+        }
+    }
+    if (action == @selector(resetTimerMenuItemSelected:)) {
+        if (!self.countDownTimer.isPaused) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 

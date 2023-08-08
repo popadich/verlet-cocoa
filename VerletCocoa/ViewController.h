@@ -8,9 +8,9 @@
 #import <Cocoa/Cocoa.h>
 #import "Timer.h"
 
-@interface ViewController<EggTimerProtocol> : NSViewController
+@interface ViewController<TimerProtocol, NSMenuItemValidation> : NSViewController
 
-@property (strong) Timer *eggTimer;
+@property (strong) Timer *countDownTimer;
 
 @end
 

@@ -66,14 +66,14 @@
 				FAB688832A813F99000B7185 /* AppDelegate.m */,
 				FAB688852A813F99000B7185 /* ViewController.h */,
 				FAB688862A813F99000B7185 /* ViewController.m */,
+				FA4868512A81C5F4002D2B23 /* Timer.h */,
+				FA4868522A81C5F4002D2B23 /* Timer.m */,
 				FACAC5752A816C2300E17994 /* PrefsViewController.h */,
 				FACAC5762A816C2300E17994 /* PrefsViewController.m */,
 				FAB688882A813F9A000B7185 /* Assets.xcassets */,
 				FAB6888A2A813F9A000B7185 /* Main.storyboard */,
 				FAB6888D2A813F9A000B7185 /* main.m */,
 				FAB6888F2A813F9A000B7185 /* VerletCocoa.entitlements */,
-				FA4868512A81C5F4002D2B23 /* Timer.h */,
-				FA4868522A81C5F4002D2B23 /* Timer.m */,
 			);
 			path = VerletCocoa;
 			sourceTree = "<group>";
@@ -297,6 +297,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xephyr.VerletCocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,6 +324,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xephyr.VerletCocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
