@@ -53,6 +53,7 @@
         [self applyConstraint];
         [self updateObjects:step_dt];
     }
+    [self.delegate updateAnimationView:self];
 }
 
 - (void)setSimulationUpdateRate:(NSInteger)rate {
@@ -151,30 +152,25 @@
 
 // MARK: ACTIVITY METHODS
 
-- (void)solverUpdate {
-    [self update];
-    [self.delegate updateAnimationView:self];
-}
-
 - (void)startAnimation {
     simulationTimer = [NSTimer scheduledTimerWithTimeInterval:m_frame_dt repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self solverUpdate];
+        [self update];
     }];
     
-    [self solverUpdate];
+    [self update];
 }
 
 - (void)stopAnimation {
     [simulationTimer invalidate];
     simulationTimer = nil;
     
-    [self solverUpdate];
+    [self update];
 }
 
 - (void)resetAnimation {
     self.particlesArray = [[NSMutableArray alloc] initWithCapacity:400];
     m_time = 0.0;
-    [self solverUpdate];
+    [self update];
 }
 
 

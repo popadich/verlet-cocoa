@@ -166,8 +166,8 @@
 }
 
 
-- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
-    SEL action = [menuItem action];
+- (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item {
+    SEL action = [item action];
     
     if (action == @selector(startTimerMenuItemSelected:)) {
         if (!(self.countDownTimer.isStopped || self.countDownTimer.isPaused)) {

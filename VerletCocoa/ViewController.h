@@ -8,7 +8,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Timer.h"
 
-@interface ViewController<TimerProtocol, SolverProtocol, NSMenuItemValidation> : NSViewController
+@interface ViewController<TimerProtocol, SolverProtocol> : NSViewController
 
 @property (strong) Timer *countDownTimer;
 
