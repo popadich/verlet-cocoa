@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0F81AF2A82DAE70029AD4C /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0F81AE2A82DAE70029AD4C /* AnimationView.m */; };
+		FA0F81B22A82DB5D0029AD4C /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0F81B02A82DB5D0029AD4C /* Particle.m */; };
+		FA0F81B52A82DB720029AD4C /* Solver.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0F81B32A82DB720029AD4C /* Solver.m */; };
+		FA0F81B82A82DB930029AD4C /* VectorCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0F81B62A82DB920029AD4C /* VectorCalculator.m */; };
+		FA0F81BB2A82E2680029AD4C /* random_util.c in Sources */ = {isa = PBXBuildFile; fileRef = FA0F81B92A82E2680029AD4C /* random_util.c */; };
 		FA4868532A81C5F4002D2B23 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4868522A81C5F4002D2B23 /* Timer.m */; };
 		FA6E22772A82A0CD00210427 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E22752A82A0CD00210427 /* Preferences.m */; };
 		FAB688842A813F99000B7185 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB688832A813F99000B7185 /* AppDelegate.m */; };
@@ -18,6 +23,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0F81AD2A82DAE70029AD4C /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
+		FA0F81AE2A82DAE70029AD4C /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
+		FA0F81B02A82DB5D0029AD4C /* Particle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particle.m; sourceTree = "<group>"; };
+		FA0F81B12A82DB5D0029AD4C /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		FA0F81B32A82DB720029AD4C /* Solver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solver.m; sourceTree = "<group>"; };
+		FA0F81B42A82DB720029AD4C /* Solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
+		FA0F81B62A82DB920029AD4C /* VectorCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorCalculator.m; sourceTree = "<group>"; };
+		FA0F81B72A82DB930029AD4C /* VectorCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorCalculator.h; sourceTree = "<group>"; };
+		FA0F81B92A82E2680029AD4C /* random_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = random_util.c; sourceTree = "<group>"; };
+		FA0F81BA2A82E2680029AD4C /* random_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = random_util.h; sourceTree = "<group>"; };
 		FA4868512A81C5F4002D2B23 /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		FA4868522A81C5F4002D2B23 /* Timer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		FA6E22752A82A0CD00210427 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
@@ -71,6 +86,16 @@
 				FAB688862A813F99000B7185 /* ViewController.m */,
 				FA4868512A81C5F4002D2B23 /* Timer.h */,
 				FA4868522A81C5F4002D2B23 /* Timer.m */,
+				FA0F81AD2A82DAE70029AD4C /* AnimationView.h */,
+				FA0F81AE2A82DAE70029AD4C /* AnimationView.m */,
+				FA0F81B12A82DB5D0029AD4C /* Particle.h */,
+				FA0F81B02A82DB5D0029AD4C /* Particle.m */,
+				FA0F81B42A82DB720029AD4C /* Solver.h */,
+				FA0F81B32A82DB720029AD4C /* Solver.m */,
+				FA0F81B72A82DB930029AD4C /* VectorCalculator.h */,
+				FA0F81B62A82DB920029AD4C /* VectorCalculator.m */,
+				FA0F81BA2A82E2680029AD4C /* random_util.h */,
+				FA0F81B92A82E2680029AD4C /* random_util.c */,
 				FACAC5752A816C2300E17994 /* PrefsViewController.h */,
 				FACAC5762A816C2300E17994 /* PrefsViewController.m */,
 				FA6E22762A82A0CD00210427 /* Preferences.h */,
@@ -153,10 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4868532A81C5F4002D2B23 /* Timer.m in Sources */,
+				FA0F81B22A82DB5D0029AD4C /* Particle.m in Sources */,
+				FA0F81AF2A82DAE70029AD4C /* AnimationView.m in Sources */,
+				FA0F81BB2A82E2680029AD4C /* random_util.c in Sources */,
 				FAB688872A813F99000B7185 /* ViewController.m in Sources */,
 				FA6E22772A82A0CD00210427 /* Preferences.m in Sources */,
 				FAB6888E2A813F9A000B7185 /* main.m in Sources */,
+				FA0F81B82A82DB930029AD4C /* VectorCalculator.m in Sources */,
 				FAB688842A813F99000B7185 /* AppDelegate.m in Sources */,
+				FA0F81B52A82DB720029AD4C /* Solver.m in Sources */,
 				FACAC5772A816C2300E17994 /* PrefsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

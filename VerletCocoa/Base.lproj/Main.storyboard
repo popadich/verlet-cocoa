@@ -162,14 +162,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-9G-0jI">
-                                <rect key="frame" x="122" y="182" width="236" height="116"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Hello" id="3sy-ZY-fFM">
-                                    <font key="font" size="100" name="HelveticaNeue"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41V-ec-mNC">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                                 <subviews>
@@ -221,16 +213,33 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="biX-63-bn6" customClass="AnimationView">
+                                <rect key="frame" x="0.0" y="40" width="480" height="400"/>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-9G-0jI">
+                                <rect key="frame" x="220" y="444" width="40" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Hello" id="3sy-ZY-fFM">
+                                    <font key="font" size="14" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="41V-ec-mNC" firstAttribute="top" secondItem="biX-63-bn6" secondAttribute="bottom" constant="8" symbolic="YES" id="5G2-Bs-K3P"/>
+                            <constraint firstAttribute="trailing" secondItem="aPY-9G-0jI" secondAttribute="trailing" constant="222" id="63S-j5-iEX"/>
                             <constraint firstAttribute="trailing" secondItem="41V-ec-mNC" secondAttribute="trailing" id="Duk-XG-p93"/>
-                            <constraint firstItem="aPY-9G-0jI" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="XBf-me-ohw"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="POd-UD-ts9"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PxC-pu-IQB"/>
+                            <constraint firstItem="aPY-9G-0jI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="222" id="T5d-XQ-coo"/>
+                            <constraint firstItem="aPY-9G-0jI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="k4S-gb-Bhk"/>
                             <constraint firstItem="41V-ec-mNC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="nCE-Pw-ONQ"/>
-                            <constraint firstItem="aPY-9G-0jI" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="qZm-3D-Vzi"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="leading" secondItem="41V-ec-mNC" secondAttribute="leading" id="p6N-qV-ytP"/>
                             <constraint firstAttribute="bottom" secondItem="41V-ec-mNC" secondAttribute="bottom" id="uP3-fY-zRM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="biX-63-bn6" id="hxt-U1-Lib"/>
                         <outlet property="resetButton" destination="yVz-17-Dkq" id="4HH-4d-lYv"/>
                         <outlet property="startButton" destination="0dt-4P-JB8" id="rsC-sV-O1e"/>
                         <outlet property="stopButton" destination="EQd-vg-R8N" id="IHE-h1-YY0"/>
