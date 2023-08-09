@@ -10,11 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-struct Constraints {
-    NSPoint position;
-    CGFloat radius;
-};
-typedef struct Constraints Constraints;
 
 @interface Solver : NSObject
 
@@ -27,7 +22,6 @@ typedef struct Constraints Constraints;
 
 -(Particle *)addParticle:(NSPoint)pos withRadius:(CGFloat)radius;
 - (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius;
-- (Constraints)getConstraint;
 - (void)setSubStepsCount:(NSInteger)sub_steps;
 - (void)setSimulationUpdateRate:(NSInteger)rate;
 - (CGFloat)getTime;

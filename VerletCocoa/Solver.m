@@ -11,11 +11,10 @@
 @implementation Solver {
     NSTimer *simulationTimer;
     CGFloat frame_interval;
-
-    NSInteger m_sub_steps;
-    NSPoint m_gravity;
     NSPoint m_constraint_center;
     CGFloat m_constraint_radius;
+    NSInteger m_sub_steps;
+    NSPoint m_gravity;
     CGFloat m_time;
     CGFloat m_frame_dt;
 }
@@ -28,7 +27,6 @@
         
         m_sub_steps = 1;
         m_gravity = NSMakePoint(0.0, -1000.0);
-        m_constraint_radius = 10.0f;
         m_time = 0.0;
         m_frame_dt = 0.0;
     }
@@ -60,11 +58,6 @@
     m_frame_dt = 1.0f / rate;
 }
 
-- (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius {
-    m_constraint_center = position;
-    m_constraint_radius = radius;
-}
-
 - (void)setSubStepsCount:(NSInteger)sub_steps {
     m_sub_steps = sub_steps;
 }
@@ -74,12 +67,9 @@
     [object setVelocity:v forDelta:[self getStepDt]];
 }
 
-- (Constraints)getConstraint {
-    Constraints constraints;
-    constraints.position = m_constraint_center;
-    constraints.radius = m_constraint_radius;
-    
-    return constraints;
+- (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius {
+    m_constraint_center = position;
+    m_constraint_radius = radius;
 }
 
 - (NSInteger)getObjectsCount{

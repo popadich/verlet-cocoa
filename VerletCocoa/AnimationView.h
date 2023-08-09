@@ -7,16 +7,25 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Particle.h"
-#import "Solver.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+struct Constraints {
+    NSPoint position;
+    CGFloat radius;
+};
+typedef struct Constraints Constraints;
 
 @interface AnimationView : NSView
 {
 
 }
 
-@property (strong)Solver *solver;
+@property (weak) NSArray * particlesArray;
+
+- (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius;
+- (Constraints)getConstraint;
+
 
 @end
 

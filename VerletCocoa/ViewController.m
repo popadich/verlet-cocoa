@@ -58,7 +58,7 @@
     
     // Solver configuration
     NSPoint constraintSize = NSMakePoint(center_x, center_y);
-    [solver setConstraint:constraintSize withRadius:300.0];
+    [animationView setConstraint:constraintSize withRadius:300.0];
     
     max_objects_count = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
     object_spawn_delay    = 0.125f;
@@ -71,7 +71,11 @@
 
     [solver setSubStepsCount:8];
     [solver setSimulationUpdateRate:frame_rate];
-    [animationView setSolver:solver];
+    
+    Constraints constraints = animationView.getConstraint;
+    [solver setConstraint:constraints.position withRadius:constraints.radius];
+    [animationView setParticlesArray:solver.particlesArray];
+    
 
 }
 
