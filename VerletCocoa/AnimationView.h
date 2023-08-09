@@ -13,12 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AnimationView : NSView
 {
-    
-    BOOL running;
+
 }
 
 @property (strong)Solver *solver;
-
 
 @end
 

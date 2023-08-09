@@ -76,7 +76,7 @@
 
 - (Constraints)getConstraint {
     Constraints constraints;
-    constraints.constraint = m_constraint_center;
+    constraints.position = m_constraint_center;
     constraints.radius = m_constraint_radius;
     
     return constraints;

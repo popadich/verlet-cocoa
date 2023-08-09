@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 struct Constraints {
-    NSPoint constraint;
+    NSPoint position;
     CGFloat radius;
 };
 typedef struct Constraints Constraints;
