@@ -52,30 +52,18 @@
     solver = [[Solver alloc] init];
     [solver setDelegate:self];
     
-    // Set constraints
-    CGFloat center_x = 310.0;
-    CGFloat center_y = 310.0;
-    
     // Solver configuration
-    NSPoint constraintSize = NSMakePoint(center_x, center_y);
-    [animationView setConstraint:constraintSize withRadius:300.0];
-    
     max_objects_count = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
     object_spawn_delay    = 0.125f;
     object_spawn_speed    = -1200.0f;
     object_min_radius     = 4.0f;
     object_max_radius     = 20.0f;
     max_angle             = 1.0f;
-    object_spawn_position = NSMakePoint(310.0, 540.0f);
+    object_spawn_position = NSMakePoint(0.0, 0.0);
     NSInteger frame_rate  = 30;
 
     [solver setSubStepsCount:8];
     [solver setSimulationUpdateRate:frame_rate];
-    
-    Constraints constraints = animationView.getConstraint;
-    [solver setConstraint:constraints.position withRadius:constraints.radius];
-    [animationView setParticlesArray:solver.particlesArray];
-    
 
 }
 
@@ -248,6 +236,11 @@
 }
 
 - (void)startParticleEvents {
+    Constraints constraints = animationView.getConstraint;
+    [solver setConstraint:constraints.position withRadius:constraints.radius];
+    [animationView setParticlesArray:solver.particlesArray];
+    object_spawn_position = NSMakePoint(constraints.position.x, constraints.position.y + constraints.radius - 40.0);
+
     eventTimer = [NSTimer scheduledTimerWithTimeInterval:object_spawn_delay repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self controllerEvent];
     }];

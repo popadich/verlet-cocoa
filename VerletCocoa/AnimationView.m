@@ -29,6 +29,11 @@
     [backgroundColor setFill];
     NSRectFill(self.bounds);
     
+    CGFloat constraintSize = (self.bounds.size.height);
+    CGFloat constraintRadius = constraintSize / 2.0;
+    NSPoint centerPoint = NSMakePoint(constraintSize - constraintRadius, constraintSize - constraintRadius);
+    [self setConstraint:centerPoint withRadius:constraintRadius];
+    
     NSRect constraintRect = NSMakeRect(constraintCenter.x-constraintRadius, constraintCenter.y-constraintRadius, constraintRadius*2, constraintRadius*2);
 
     [constraintColor setFill];
