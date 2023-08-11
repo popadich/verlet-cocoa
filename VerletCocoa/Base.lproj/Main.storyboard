@@ -239,7 +239,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationView" destination="biX-63-bn6" id="hxt-U1-Lib"/>
+                        <outlet property="animationView" destination="biX-63-bn6" id="LwE-6N-6cK"/>
                         <outlet property="resetButton" destination="yVz-17-Dkq" id="4HH-4d-lYv"/>
                         <outlet property="startButton" destination="0dt-4P-JB8" id="rsC-sV-O1e"/>
                         <outlet property="stopButton" destination="EQd-vg-R8N" id="IHE-h1-YY0"/>

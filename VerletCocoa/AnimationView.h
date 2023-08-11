@@ -24,7 +24,6 @@ typedef struct Constraints Constraints;
 @property (weak) NSArray * particlesArray;
 
 - (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius;
-- (Constraints)getConstraint;
 
 
 @end

@@ -7,10 +7,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Timer.h"
+#import "AnimationView.h"
 
 @interface ViewController<TimerProtocol, SolverProtocol> : NSViewController
 
 @property (strong) Timer *countDownTimer;
+@property (weak) IBOutlet AnimationView *animationView;
 
 @end
 

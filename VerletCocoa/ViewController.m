@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "Preferences.h"
-#import "AnimationView.h"
 #import "Solver.h"
 #import "Particle.h"
 #import "random_util.h"
@@ -22,8 +21,6 @@
     __weak IBOutlet NSButton *startButton;
     __weak IBOutlet NSButton *stopButton;
     __weak IBOutlet NSButton *resetButton;
-    
-    __weak IBOutlet AnimationView *animationView;
     
     NSInteger max_objects_count;
     CGFloat object_spawn_delay;
@@ -64,9 +61,25 @@
 
     [solver setSubStepsCount:8];
     [solver setSimulationUpdateRate:frame_rate];
+    [self setConstraints];
+
+ }
+
+- (void) setConstraints {
+    CGFloat constraintSize = (self.animationView.bounds.size.height);
+    CGFloat constraintRadius = constraintSize / 2.0;
+    NSPoint centerPoint = NSMakePoint(constraintSize - constraintRadius, constraintSize - constraintRadius);
+    object_spawn_position = NSMakePoint(centerPoint.x, centerPoint.y + constraintRadius - 40.0);
+    
+    [self.animationView setConstraint:centerPoint withRadius:constraintRadius];
+    [solver setConstraint:centerPoint withRadius:constraintRadius];
 
 }
 
+- (void) viewDidLayout {
+    [self setConstraints];
+    [solver.particlesArray removeAllObjects];
+}
 
 - (IBAction)startButtonClicked:(NSButton *)sender {
     if (self.countDownTimer.isPaused) {
@@ -236,10 +249,7 @@
 }
 
 - (void)startParticleEvents {
-    Constraints constraints = animationView.getConstraint;
-    [solver setConstraint:constraints.position withRadius:constraints.radius];
-    [animationView setParticlesArray:solver.particlesArray];
-    object_spawn_position = NSMakePoint(constraints.position.x, constraints.position.y + constraints.radius - 40.0);
+    [self.animationView setParticlesArray:solver.particlesArray];    
 
     eventTimer = [NSTimer scheduledTimerWithTimeInterval:object_spawn_delay repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self controllerEvent];
@@ -252,7 +262,7 @@
 }
 
 - (void)updateAnimationView:(Solver *)solver {
-    [animationView setNeedsDisplay:YES];
+    [self.animationView setNeedsDisplay:YES];
 }
 
 

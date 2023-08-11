@@ -8,16 +8,13 @@
 #import "AnimationView.h"
 
 @implementation AnimationView {
-    NSPoint constraintCenter;
-    CGFloat constraintRadius;
+    NSRect constraintRect;
 
     NSColor *backgroundColor;
     NSColor *constraintColor;
 }
 
 - (void)awakeFromNib {
-    constraintRadius = 100.0f;
-
     backgroundColor = [NSColor grayColor];
     constraintColor = [NSColor blackColor];
 }
@@ -28,13 +25,6 @@
     // Drawing code here.
     [backgroundColor setFill];
     NSRectFill(self.bounds);
-    
-    CGFloat constraintSize = (self.bounds.size.height);
-    CGFloat constraintRadius = constraintSize / 2.0;
-    NSPoint centerPoint = NSMakePoint(constraintSize - constraintRadius, constraintSize - constraintRadius);
-    [self setConstraint:centerPoint withRadius:constraintRadius];
-    
-    NSRect constraintRect = NSMakeRect(constraintCenter.x-constraintRadius, constraintCenter.y-constraintRadius, constraintRadius*2, constraintRadius*2);
 
     [constraintColor setFill];
     NSBezierPath *constraintOval = [NSBezierPath bezierPathWithOvalInRect:constraintRect];
@@ -51,16 +41,9 @@
 }
 
 - (void)setConstraint:(NSPoint)position withRadius:(CGFloat)radius {
-    constraintCenter = position;
-    constraintRadius = radius;
-}
+    constraintRect = NSMakeRect(position.x, position.y, radius*2, radius*2);
+    constraintRect = NSOffsetRect(constraintRect, -radius, -radius);
 
-- (Constraints)getConstraint {
-    Constraints constraints;
-    constraints.position = constraintCenter;
-    constraints.radius = constraintRadius;
-    
-    return constraints;
 }
 
 
