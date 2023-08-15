@@ -33,10 +33,20 @@
     return self;
 }
 
+- (NSColor *)getRainbow:(CGFloat)t {
+    CGFloat r = sin(t);
+    CGFloat g = sin(t + 0.33f * 2.0f * M_PI);
+    CGFloat b = sin(t + 0.66f * 2.0f * M_PI);
+    NSColor *color = [NSColor colorWithRed:r*r green:g*g blue:b*b alpha:1.0];
+    return color;
+}
+
 -(Particle *)addParticle:(NSPoint)pos withRadius:(CGFloat)radius {
     // add a particle to the internal particles array
     Particle *aParticle = [[Particle alloc] initWithPosition:pos andRadius:radius];
     [self.particlesArray addObject:aParticle];
+    
+    [aParticle setColor:[self getRainbow:self.getTime]];
     
     return aParticle;
 }
@@ -146,19 +156,16 @@
     simulationTimer = [NSTimer scheduledTimerWithTimeInterval:m_frame_dt repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self update];
     }];
-    
-    [self update];
 }
 
 - (void)stopAnimation {
     [simulationTimer invalidate];
     simulationTimer = nil;
-    
-    [self update];
+    [self.delegate animationHasFinished:self];
 }
 
 - (void)resetAnimation {
-    self.particlesArray = [[NSMutableArray alloc] initWithCapacity:400];
+    [self.particlesArray removeAllObjects];
     m_time = 0.0;
     [self update];
 }

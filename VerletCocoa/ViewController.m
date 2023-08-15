@@ -49,16 +49,17 @@
     solver = [[Solver alloc] init];
     [solver setDelegate:self];
     
-    // Solver configuration
-    max_objects_count = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
+    // Particle spawn parameters
     object_spawn_delay    = 0.125f;
     object_spawn_speed    = -1200.0f;
     object_min_radius     = 4.0f;
     object_max_radius     = 20.0f;
     max_angle             = 1.0f;
-    object_spawn_position = NSMakePoint(0.0, 0.0);
+    object_spawn_position = NSZeroPoint;
     NSInteger frame_rate  = 30;
 
+    max_objects_count = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
+    
     [solver setSubStepsCount:8];
     [solver setSimulationUpdateRate:frame_rate];
     [self setConstraints];
@@ -66,9 +67,11 @@
  }
 
 - (void) setConstraints {
-    CGFloat constraintSize = (self.animationView.bounds.size.height);
+    CGFloat constraintSize = NSHeight(self.animationView.bounds);
+    CGFloat centerOffset = (NSWidth(self.animationView.bounds) - constraintSize) / 2;
+    
     CGFloat constraintRadius = constraintSize / 2.0;
-    NSPoint centerPoint = NSMakePoint(constraintSize - constraintRadius, constraintSize - constraintRadius);
+    NSPoint centerPoint = NSMakePoint(constraintSize - constraintRadius + centerOffset, constraintSize - constraintRadius);
     object_spawn_position = NSMakePoint(centerPoint.x, centerPoint.y + constraintRadius - 40.0);
     
     [self.animationView setConstraint:centerPoint withRadius:constraintRadius];
@@ -99,7 +102,6 @@
 - (IBAction)stopButtonClicked:(NSButton *)sender {
     [self.countDownTimer stopTimer];
     [solver stopAnimation];
-    [self stopParticleEvents];
     [self configureButtonsState];
 }
 
@@ -107,7 +109,6 @@
     [self.countDownTimer resetTimer];
     [self.countDownTimer setDuration:self.prefs.selectedTime];
     [self updateDisplayFor:self.prefs.selectedTime];
-    [self stopParticleEvents];
     [solver resetAnimation];
     [self configureButtonsState];
 }
@@ -204,7 +205,10 @@
 - (void)updateFromPrefs {
     [self.countDownTimer setDuration:self.prefs.selectedTime];
     max_objects_count = [[NSUserDefaults standardUserDefaults] integerForKey:@"maximumNumberOfParticles"];
-    [self resetButtonClicked:nil];
+    [self.countDownTimer resetTimer];
+    [self updateDisplayFor:self.prefs.selectedTime];
+
+    [self resetParticleEvents];
 }
 
 - (void)checkForResetAfterPrefsChange {
@@ -227,15 +231,8 @@
 }
 
 // MARK: Particle Events
-- (NSColor *)getRainbow:(CGFloat)t {
-    CGFloat r = sin(t);
-    CGFloat g = sin(t + 0.33f * 2.0f * M_PI);
-    CGFloat b = sin(t + 0.66f * 2.0f * M_PI);
-    NSColor *color = [NSColor colorWithRed:r*r green:g*g blue:b*b alpha:1.0];
-    return color;
-}
 
-- (void)controllerEvent {
+- (void)particleEvent {
     if ([solver getObjectsCount] < max_objects_count) {
       
         Particle *object = [solver addParticle:object_spawn_position withRadius:randomFloatBetweenSmallNumberAndBigNumber(object_min_radius, object_max_radius)];
@@ -244,7 +241,6 @@
         
         NSPoint velocity = NSMakePoint(object_spawn_speed * cos(angle), object_spawn_speed * sin(angle));
         [solver setObjectVelocity:object velocity:velocity];
-        [object setColor:[self getRainbow:t]];
     }
 }
 
@@ -252,7 +248,7 @@
     [self.animationView setParticlesArray:solver.particlesArray];    
 
     eventTimer = [NSTimer scheduledTimerWithTimeInterval:object_spawn_delay repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self controllerEvent];
+        [self particleEvent];
     }];
 }
 
@@ -261,8 +257,17 @@
     eventTimer = nil;
 }
 
+- (void)resetParticleEvents {
+    [solver resetAnimation];
+    [self.animationView setParticlesArray:solver.particlesArray];
+}
+
 - (void)updateAnimationView:(Solver *)solver {
     [self.animationView setNeedsDisplay:YES];
+}
+
+- (void)animationHasFinished:(Solver *)solver {
+    [self stopParticleEvents];
 }
 
 

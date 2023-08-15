@@ -214,28 +214,30 @@
                                 </customSpacing>
                             </stackView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="biX-63-bn6" customClass="AnimationView">
-                                <rect key="frame" x="0.0" y="40" width="480" height="400"/>
+                                <rect key="frame" x="20" y="40" width="440" height="420"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="biX-63-bn6" secondAttribute="height" multiplier="22:21" id="Cp2-Si-dwg"/>
+                                </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-9G-0jI">
-                                <rect key="frame" x="220" y="444" width="40" height="16"/>
+                                <rect key="frame" x="220" y="432" width="40" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Hello" id="3sy-ZY-fFM">
                                     <font key="font" size="14" name="HelveticaNeue"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="41V-ec-mNC" firstAttribute="top" secondItem="biX-63-bn6" secondAttribute="bottom" constant="8" symbolic="YES" id="5G2-Bs-K3P"/>
-                            <constraint firstAttribute="trailing" secondItem="aPY-9G-0jI" secondAttribute="trailing" constant="222" id="63S-j5-iEX"/>
+                            <constraint firstItem="aPY-9G-0jI" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Aaa-pl-dKC"/>
                             <constraint firstAttribute="trailing" secondItem="41V-ec-mNC" secondAttribute="trailing" id="Duk-XG-p93"/>
-                            <constraint firstItem="biX-63-bn6" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="POd-UD-ts9"/>
-                            <constraint firstItem="biX-63-bn6" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PxC-pu-IQB"/>
-                            <constraint firstItem="aPY-9G-0jI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="222" id="T5d-XQ-coo"/>
-                            <constraint firstItem="aPY-9G-0jI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="k4S-gb-Bhk"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="Gk9-lT-NpC"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="VPw-no-rYY"/>
+                            <constraint firstItem="EQd-vg-R8N" firstAttribute="top" secondItem="biX-63-bn6" secondAttribute="bottom" constant="8" symbolic="YES" id="b7k-Zq-YQs"/>
+                            <constraint firstItem="aPY-9G-0jI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="32" id="k4S-gb-Bhk"/>
                             <constraint firstItem="41V-ec-mNC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="nCE-Pw-ONQ"/>
-                            <constraint firstItem="biX-63-bn6" firstAttribute="leading" secondItem="41V-ec-mNC" secondAttribute="leading" id="p6N-qV-ytP"/>
                             <constraint firstAttribute="bottom" secondItem="41V-ec-mNC" secondAttribute="bottom" id="uP3-fY-zRM"/>
+                            <constraint firstItem="biX-63-bn6" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="x2g-M9-aMv"/>
                         </constraints>
                     </view>
                     <connections>
